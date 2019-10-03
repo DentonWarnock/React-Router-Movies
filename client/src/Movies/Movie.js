@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Movie = (props) => {
-  const [movie, setMovie] = useState({});
+  const [movie, setMovie] = useState();
   
   useEffect(() => {
     const id = props.match.params.id;
@@ -31,7 +31,7 @@ const Movie = (props) => {
   }
 
   const { title, director, metascore, stars } = movie;
-  console.log(stars)
+  console.log(props)
   return (
     <div className="save-wrapper">
       <div className="movie-card">
@@ -42,7 +42,6 @@ const Movie = (props) => {
         <div className="movie-metascore">
           Metascore: <strong>{metascore}</strong>
         </div>
-        {console.log(stars)};
         <h3>Actors</h3>     
         {stars.map(star => (
           <div key={star} className="movie-star">
