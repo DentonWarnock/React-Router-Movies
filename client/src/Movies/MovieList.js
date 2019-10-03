@@ -24,7 +24,7 @@ const MovieList = props => {
     <div className="movie-list">
       {movies.map(movie => (
         <Route path="/" render={props => (
-          <MovieDetails {...props} id={movie.id} movie={movie} />
+          <MovieDetails key={movie.id} id={movie.id} movie={movie} />
         )}         
         />
       ))}
