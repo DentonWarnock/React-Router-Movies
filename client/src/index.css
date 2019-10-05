@@ -3,10 +3,10 @@ body {
   padding: 0;
   font-family: sans-serif;
   background-color: #f2f2f2;
-}
+  }
 
 .movie-card {
-  background-color: #fff;
+  background-color: lightgray;
   border: 0;
   box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
     0 2px 4px rgba(0, 0, 0, 0.24);
@@ -14,6 +14,13 @@ body {
   cursor: pointer;
   position: relative;
   margin: 1rem auto;
+  width: 75%;
+  text-align: center;   
+}
+
+.movie-card > a {
+  text-decoration: none;
+  color: dodgerblue;  
 }
 
 .movie-director {
@@ -22,7 +29,7 @@ body {
 }
 
 .saved-list {
-  background-color: #fff;
+  background-color: lightgray;
   border: 0;
   box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
     0 2px 4px rgba(0, 0, 0, 0.24);
@@ -38,6 +45,7 @@ body {
 
 .saved-list h3 {
   margin-right: 10px;
+  color: lightseagreen;
 }
 
 .saved-movie {
@@ -54,9 +62,9 @@ body {
   margin: 1rem auto;
 }
 .save-button {
-  position: absolute;
+  position: absolute; 
   top: 25px;
-  right: 25px;
+  right: 275px;
   border: 1px solid grey;
   padding: 5px 10px;
   background-color: lightseagreen;

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link, Route } from "react-router-dom";
+import MovieCard from './MovieCard.js';
 
 
 const MovieList = props => {
-  const [movies, setMovies] = useState([])
+  const [movies, setMovies] = useState([]);
   useEffect(() => {
     const getMovies = () => {
       axios
@@ -23,36 +23,11 @@ const MovieList = props => {
   return (
     <div className="movie-list">
       {movies.map(movie => (
-        <Route path="/" render={props => (
-          <MovieDetails key={movie.id} id={movie.id} movie={movie} />
-        )}         
-        />
+        <div onClick={() => props.history.push(`/movies/${movie.id}`)}>
+          <MovieCard {...props} key={movie.id} id={movie.id} movie={movie} />
+        </div>      
+        
       ))}
-    </div>
-  );
-}
-
-function MovieDetails({ movie }) {
-  const { title, director, metascore, stars } = movie;
-  console.log("ID", movie.id);
-  return (
-    <div className="movie-card">
-      <Link to={`/movies/${movie.id}`}>
-      <h2>{title}</h2>
-      <div className="movie-director">
-        Director: <em>{director}</em>
-      </div>
-      <div className="movie-metascore">
-        Metascore: <strong>{metascore}</strong>
-      </div>
-      <h3>Actors</h3>
-
-      {stars.map(star => (
-        <div key={star} className="movie-star">
-          {star}
-        </div>
-      ))}
-      </Link>
     </div>
   );
 }
