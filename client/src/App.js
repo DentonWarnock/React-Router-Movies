@@ -10,10 +10,12 @@ const App = () => {
   const addToSavedList = movie => {
     setSavedList( [...savedList, movie] );
   };
-
+ 
   return (
     <div>
-      <SavedList list={savedList} />
+      
+      {/* <SavedList list={savedList} setSavedList={setSavedList} /> */}
+      <Route path="/" render={props => <SavedList list={savedList} setSavedList={setSavedList} />}  />
       <Route exact path="/" component={MovieList} />
       <Route path="/movies/:id" render={props => <MovieCard id={props.match.params.id} addToSavedList={addToSavedList} />} />
     </div>

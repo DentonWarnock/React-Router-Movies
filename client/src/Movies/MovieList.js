@@ -19,12 +19,13 @@ const MovieList = props => {
     
     getMovies();
   }, []);
+  const addSaveList = props.addToSavedList;
   
   return (
     <div className="movie-list">
       {movies.map(movie => (
         <div onClick={() => props.history.push(`/movies/${movie.id}`)}>
-          <MovieCard {...props} key={movie.id} id={movie.id} movie={movie} />
+          <MovieCard {...props} key={movie.id} id={movie.id} movie={movie} addToSavedList={addSaveList} />
         </div>      
         
       ))}

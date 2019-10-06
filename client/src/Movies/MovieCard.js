@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { NavLink } from 'react-router-dom';
 
 const MovieCard = (props) => {
   const [movie, setMovie] = useState();
@@ -32,10 +31,10 @@ const MovieCard = (props) => {
   }
 
   const { title, director, metascore, stars } = movie;
-  console.log(props)
+  console.log("Movie Card PROPS: ", props);
   return (
-    <div className="save-wrapper">
-      <div className="movie-card">
+    <div className="save-wrapper" >
+      <div className="movie-card" key={movie.key}>
         <h2>{title}</h2>
         <div className="movie-director">
           Director: <em>{director}</em>
@@ -50,9 +49,8 @@ const MovieCard = (props) => {
           </div>
         ))}
       </div>
-      <NavLink>
-        <div onClick={() => saveMovie()} className="save-button">Save</div>
-      </NavLink>
+      {/* Save Button -- trying to get only to show on /movies/:id path */}
+        {props.id  ? <div onClick={() => saveMovie()} className="save-button">Save</div> : null  }
     </div>
   );
 }
