@@ -26,6 +26,14 @@ const MovieCard = (props) => {
     addToSavedList(movie)
   }
 
+  // const saveButton = () => {
+  //   if (props.list.includes(movie)) {
+      
+  //   } else {
+  //     saveMovie();
+  //   }
+  // }
+
   if (!movie) {
     return <div>Loading movie information...</div>;
   }
@@ -34,7 +42,7 @@ const MovieCard = (props) => {
   console.log("Movie Card PROPS: ", props);
   return (
     <div className="save-wrapper" >
-      <div className="movie-card" key={movie.key}>
+      <div className="movie-card" >
         <h2>{title}</h2>
         <div className="movie-director">
           Director: <em>{director}</em>
@@ -50,7 +58,8 @@ const MovieCard = (props) => {
         ))}
       </div>
       {/* Save Button -- trying to get only to show on /movies/:id path */}
-        {props.id  ? <div onClick={() => saveMovie()} className="save-button">Save</div> : null  }
+        {props.id ? <div onClick={() => saveMovie()} className="save-button">Save</div> : null  }
+        {/* {props.id ? <div onClick={saveButton()} className="save-button">Save</div> : null  } */}
     </div>
   );
 }

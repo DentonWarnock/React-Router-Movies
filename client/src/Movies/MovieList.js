@@ -24,7 +24,7 @@ const MovieList = props => {
   return (
     <div className="movie-list">
       {movies.map(movie => (
-        <div onClick={() => props.history.push(`/movies/${movie.id}`)}>
+        <div key={movie.id} onClick={() => props.history.push(`/movies/${movie.id}`)}>
           <MovieCard {...props} key={movie.id} id={movie.id} movie={movie} addToSavedList={addSaveList} />
         </div>      
         
