@@ -27,7 +27,9 @@ const MovieCard = (props) => {
   }
 
   // const saveButton = () => {
-  //   if (props.list.includes(movie)) {
+  //   const currentSavedList = props.list;
+  //   console.log(currentSavedList);
+  //   if (currentSavedList.includes(movie)) {
       
   //   } else {
   //     saveMovie();
